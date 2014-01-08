@@ -7,14 +7,15 @@ public class Worker {
 	public String doWork(final String in) {
 		ZMQ.Context context = ZMQ.context(1);
 		
-		String testStr = "{\"config\": {\"text\": \"Hello World! When are we going to London?\"}}";
+//		String testStr = "{\"config\": {\"text\": \"Hello World! When are we going to London?\"}}";
 
 		// Socket to talk to server
-		System.out.println("Connecting to 0mq server");
+		System.out.println("Connecting to 0mq server " + ZMQ.getVersionString());
+	
 
 		ZMQ.Socket socket = context.socket(ZMQ.REQ);
 //		socket.connect("tcp://10.0.1.6:5559");
-		socket.connect("tcp://localhost:5555");
+		socket.connect("tcp://10.0.1.3:35555");
 
 		System.out.println("Sending " + in);
 		socket.send(in.getBytes(), 0);
@@ -24,7 +25,7 @@ public class Worker {
 
 		socket.close();
 		context.term();
-		return new String(reply);
+		return new String(in);
 	}
 
 }

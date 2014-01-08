@@ -1,4 +1,4 @@
-package ripjar;
+package ripjar_spark;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
