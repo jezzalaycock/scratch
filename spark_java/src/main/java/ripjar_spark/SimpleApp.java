@@ -11,8 +11,9 @@ import org.apache.spark.api.java.function.FlatMapFunction;
 import org.apache.spark.api.java.function.Function2;
 import org.apache.spark.api.java.function.PairFunction;
 
-import ripjar.Worker;
 import scala.Tuple2;
+
+import com.ripjar.zmq.ZMQWorker;
 
 public class SimpleApp {
 	public static void main(String[] args) {
@@ -62,8 +63,8 @@ public class SimpleApp {
 					public Iterable<String> call(String s) {
 						System.out.println("abc1");
 						System.out.println("oink");
-						Worker worker = new Worker();
-						return Arrays.asList((worker.doWork(s).split(" ")));
+						ZMQWorker worker = new ZMQWorker();
+						return Arrays.asList((worker.doWork("tcp://127.0.0.1:35555", s).split(" ")));
 					}
 				});
 

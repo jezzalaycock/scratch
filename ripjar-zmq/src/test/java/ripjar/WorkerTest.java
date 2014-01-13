@@ -6,6 +6,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.ripjar.zmq.ZMQWorker;
+
 public class WorkerTest {
 
 	@Before
@@ -19,7 +21,7 @@ public class WorkerTest {
 
 	@Test
 	public void testDoWork() {
-		Worker worker = new Worker();
+		ZMQWorker worker = new ZMQWorker();
 //		String resp = worker.doWork("stuff");
 //        assertEquals(resp, "Oink");
         assertTrue(true);

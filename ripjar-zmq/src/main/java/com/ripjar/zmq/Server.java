@@ -1,4 +1,4 @@
-package ripjar;
+package com.ripjar.zmq;
 
 import org.zeromq.ZMQ;
 
